@@ -46,7 +46,7 @@ namespace PryTPILab_y_Log_Alvarez
 
         private void listadoDeTodsLosClientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ListadoClientes nv = new ListadoClientes ();
+            frmListadoClientes nv = new frmListadoClientes ();
             nv.ShowDialog();
         }
 
@@ -60,6 +60,11 @@ namespace PryTPILab_y_Log_Alvarez
         {
             frmListadoClienteDeUnaCiudad nv = new frmListadoClienteDeUnaCiudad();
             nv.ShowDialog();
+        }
+
+        private void sistemaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Bienvenidos a GrandGym,esperamos disfrute nuestros locales ,maquinas y profesores ");
         }
     }
 }
