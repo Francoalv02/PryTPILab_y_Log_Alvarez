@@ -74,7 +74,7 @@
             this.Controls.Add(this.btnMostrarListado);
             this.Controls.Add(this.dgwTodosClientes);
             this.Name = "frmListadoClientes";
-            this.Text = "frmListadoClientes";
+            this.Text = "Listado De Todos Los Clientes";
             ((System.ComponentModel.ISupportInitialize)(this.dgwTodosClientes)).EndInit();
             this.ResumeLayout(false);
 

@@ -10,16 +10,17 @@ using System.Windows.Forms;
 
 namespace PryTPILab_y_Log_Alvarez
 {
-    public partial class frmListadoClienteDeUnaCiudad : Form
+    public partial class frmListadoPorUnaCiudad : Form
     {
-        public frmListadoClienteDeUnaCiudad()
+        public frmListadoPorUnaCiudad()
         {
             InitializeComponent();
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void frmListadoPorUnaCiudad_Load(object sender, EventArgs e)
         {
-
+            ClsCiudad Barr = new ClsCiudad();
+            Barr.Listar(cbCiudad);
         }
     }
 }

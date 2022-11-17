@@ -28,22 +28,22 @@ namespace PryTPILab_y_Log_Alvarez
         private int varCantidad;
         private decimal varDeuda;
 
-        private Int32 DniCliente;
+        private Int32 IdCliente;
         private string Nombre;
         private decimal Deudaa;
         private decimal Limite;
         private Int32 Ciudad;
-        private Int32 Sueldoo;
+        private Decimal Sueldoo;
         private string Barrio;
         private string Actividad;
 
 
         public Int32 Dni
         {
-            get { return DniCliente; }
-            set { DniCliente = value; }
+            get { return IdCliente; }
+            set { IdCliente = value; }
         }
-        public Int32 Saldo
+        public Decimal Saldo
         {
             get { return Sueldoo; }
             set { Sueldoo = value; }
@@ -68,7 +68,7 @@ namespace PryTPILab_y_Log_Alvarez
         public decimal Deuda
         {
             get { return Deudaa; }
-            set { DniCliente = Convert.ToInt32 (value); }
+            set { IdCliente = Convert.ToInt32 (value); }
         }
 
         public decimal Limite_deuda
@@ -155,7 +155,7 @@ namespace PryTPILab_y_Log_Alvarez
             }
             
         }
-        public void BuscarCliente(Int32 DniClientes)
+        public void BuscarCliente(Int32 DniCliente)
         {
             try
             {
@@ -167,22 +167,24 @@ namespace PryTPILab_y_Log_Alvarez
                 comando.CommandText = "Registro_Principal";
 
                 OleDbDataReader DR = comando.ExecuteReader();//leer
-                DniCliente = 0;
-                if (DR.HasRows)
+                
+                if (DR.HasRows)//si hay filas
                 {
                     while (DR.Read())//mientras hay datos leer
                     {
-                        if (DR.GetInt32(4) == DniClientes)
+                        if (DR.GetInt32(4) == DniCliente)
                         {
-                            DniCliente = DR.GetInt32(4);
+                            IdCliente = DR.GetInt32(4);
                             Nombre = DR.GetString(0);
-                            Ciudad = DR.GetInt32(1);
+                            Sueldoo = DR.GetDecimal(2);
                             Deuda = DR.GetDecimal(7);
                             Limite = DR.GetDecimal(6);
+
                         }
                     }
                 }
-            }
+                conexion.Close();
+            }   
             catch (Exception error)
             {
 
@@ -210,7 +212,7 @@ namespace PryTPILab_y_Log_Alvarez
                 DataTable tabla = Ds.Tables[Tabla];//-tabla1-
                 DataRow fila = tabla.NewRow();//nueva fila de la -tabla1-
 
-                   fila["Dni"] = DniCliente;
+                   fila["Dni"] = IdCliente;
                    fila["Nom_Apellido"] = Nombre;
                    fila["Deuda"] = Deudaa;
                    fila["Limite_deuda"] = Limite;
@@ -270,6 +272,54 @@ namespace PryTPILab_y_Log_Alvarez
             }
 
             //return id;
+        }
+
+        public void ModificarCliente(Int32 IDCliente)
+        {
+            try
+            {
+                OleDbConnection conexionDB;
+                conexionDB = new OleDbConnection(cadenaConexion);
+                conexionDB.Open();
+                using (System.Data.OleDb.OleDbCommand commandUpdate = new System.Data.OleDb.OleDbCommand(
+                    "UPDATE Registro_Principal SET [Limite_deuda]=@limite WHERE [Dni]=@dni", conexionDB))
+                {
+                    commandUpdate.Parameters.Add(new System.Data.OleDb.OleDbParameter("@limite", Convert.ToDecimal(Limite.ToString())));
+                    commandUpdate.Parameters.Add(new System.Data.OleDb.OleDbParameter("@dni", int.Parse(IDCliente.ToString())));
+                    commandUpdate.ExecuteNonQuery();
+                }
+                conexionDB.Close();
+
+            }
+            catch (Exception error)
+            {
+
+                MessageBox.Show(Convert.ToString( error));
+            }
+        }
+
+        public void EliminarCliente(Int32 IDCliente)
+        {
+            try
+            {
+                OleDbConnection conexionDB;
+                conexionDB = new OleDbConnection(cadenaConexion);
+                conexionDB.Open();
+                using (System.Data.OleDb.OleDbCommand commandUpdate = new System.Data.OleDb.OleDbCommand(
+                    "DELETE * FROM UPDATE Registro_Principal SET[Limite_deuda] = @limite WHERE[Dni] = @dni" , conexionDB))
+                {
+                    commandUpdate.Parameters.Add(new System.Data.OleDb.OleDbParameter("@limite", Convert.ToDecimal(Limite.ToString())));
+                    commandUpdate.Parameters.Add(new System.Data.OleDb.OleDbParameter("@dni", int.Parse(IDCliente.ToString())));
+                    commandUpdate.ExecuteNonQuery();
+                }
+                conexionDB.Close();
+
+            }
+            catch (Exception error)
+            {
+
+                MessageBox.Show(Convert.ToString(error));
+            }
         }
     }   
 }

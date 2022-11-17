@@ -62,12 +62,6 @@
     <Compile Include="frmCargar_Nuevo_Cliente.Designer.cs">
       <DependentUpon>frmCargar_Nuevo_Cliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmListadoClienteDeUnaCiudad.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmListadoClienteDeUnaCiudad.Designer.cs">
-      <DependentUpon>frmListadoClienteDeUnaCiudad.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmListadoClientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,11 +74,29 @@
     <Compile Include="frmListadoClientesDeudores.Designer.cs">
       <DependentUpon>frmListadoClientesDeudores.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmPrinipal.cs">
+    <Compile Include="frmListadoPorActividad.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPrinipal.Designer.cs">
-      <DependentUpon>frmPrinipal.cs</DependentUpon>
+    <Compile Include="frmListadoPorActividad.Designer.cs">
+      <DependentUpon>frmListadoPorActividad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmListadoPorBarrio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListadoPorBarrio.Designer.cs">
+      <DependentUpon>frmListadoPorBarrio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmListadoPorUnaCiudad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListadoPorUnaCiudad.Designer.cs">
+      <DependentUpon>frmListadoPorUnaCiudad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMenuPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMenuPrincipal.Designer.cs">
+      <DependentUpon>frmMenuPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -94,17 +106,23 @@
     <EmbeddedResource Include="frmCargar_Nuevo_Cliente.resx">
       <DependentUpon>frmCargar_Nuevo_Cliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmListadoClienteDeUnaCiudad.resx">
-      <DependentUpon>frmListadoClienteDeUnaCiudad.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmListadoClientes.resx">
       <DependentUpon>frmListadoClientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmListadoClientesDeudores.resx">
       <DependentUpon>frmListadoClientesDeudores.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPrinipal.resx">
-      <DependentUpon>frmPrinipal.cs</DependentUpon>
+    <EmbeddedResource Include="frmListadoPorActividad.resx">
+      <DependentUpon>frmListadoPorActividad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListadoPorBarrio.resx">
+      <DependentUpon>frmListadoPorBarrio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListadoPorUnaCiudad.resx">
+      <DependentUpon>frmListadoPorUnaCiudad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMenuPrincipal.resx">
+      <DependentUpon>frmMenuPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

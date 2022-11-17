@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.OleDb;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -29,25 +30,56 @@ namespace PryTPILab_y_Log_Alvarez
 
         private void btnCargarCliente_Click(object sender, EventArgs e)
         {
-            Int32 DniCliente = Convert.ToInt32(txtBusquedaDni.Text);
             Class objCliente = new Class();
-            objCliente.BuscarCliente(DniCliente);
-            if (objCliente.Dni == 0)
+            
+            if (txtBusquedaDni.Text != "")
             {
-                lblResultadoNombreCliente.Text = "";
-                lblResultadoDeuda.Text = ("");
-                lblResultadoCiudad.Text = "";
-                txtBusquedaDni.Text = "";
-                MessageBox.Show("El Dni ingresado no corresponde a ningun Cliente");
+                Int32 DniCliente = Convert.ToInt32(txtBusquedaDni.Text);
+                objCliente.BuscarCliente(DniCliente);
+                lblResultadoNombreCliente.Text = objCliente.Nom_Apellido;
+                lblResultadoDeuda.Text = objCliente.Deuda.ToString();
+                lblResultadoSaldo.Text = objCliente.Saldo.ToString();
+                txtLimiteDeuda.Text = objCliente.Limite_deuda.ToString();
             }
             else
             {
-                lblResultadoNombreCliente.Text = objCliente.Nom_Apellido;
-                lblResultadoDeuda.Text = objCliente.Saldo.ToString();
-                lblResultadoCiudad.Text = objCliente.Cod_Ciudad.ToString();
-                lblLimite.Text = objCliente.Limite_deuda.ToString();
+                lblResultadoNombreCliente.Text = "";
+                lblResultadoDeuda.Text = ("");
+                lblResultadoSaldo.Text = "";
+                txtBusquedaDni.Text = "";
+                MessageBox.Show("Ingrese un dato");
             }
             
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            txtLimiteDeuda.Enabled = true;
+            btnEliminar.Enabled = false;
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            Int32 dni = Convert.ToInt32(txtBusquedaDni.Text);
+            Class nv = new Class();
+            nv.Limite_deuda = Convert.ToDecimal(txtLimiteDeuda.Text);
+            nv.ModificarCliente(dni);
+            MessageBox.Show("Dato Modificado Correctamente");
+            LimpiarTexto();
+            btnEliminar.Enabled=true;
+        }
+        public void LimpiarTexto()
+        {
+            txtBusquedaDni.Text = "";
+            txtLimiteDeuda.Text = "";
+            lblResultadoSaldo.Text = "";
+            lblResultadoDeuda.Text = "";
+            lblResultadoNombreCliente.Text = "";
+
+        }
+        private void frmBusquedaCliente_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

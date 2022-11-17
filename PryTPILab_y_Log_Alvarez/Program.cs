@@ -16,7 +16,7 @@ namespace PryTPILab_y_Log_Alvarez
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmPrinipal());
+            Application.Run(new frmMenuPrincipal());
         }
     }
 }

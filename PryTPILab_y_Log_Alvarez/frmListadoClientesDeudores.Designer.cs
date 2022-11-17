@@ -172,7 +172,7 @@
             this.Controls.Add(this.btn);
             this.Controls.Add(this.dgwGrillaDeudores);
             this.Name = "frmListadoClientesDeudores";
-            this.Text = "frmListadoClientesDeudores";
+            this.Text = "Listado De Clientes Deudores";
             this.Load += new System.EventHandler(this.frmListadoClientesDeudores_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgwGrillaDeudores)).EndInit();
             this.ResumeLayout(false);
