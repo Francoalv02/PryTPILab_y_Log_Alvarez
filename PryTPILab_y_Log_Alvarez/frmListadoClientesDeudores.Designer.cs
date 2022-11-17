@@ -40,6 +40,7 @@
             this.lblResultadoCantidad = new System.Windows.Forms.Label();
             this.lblResultadoDeuda = new System.Windows.Forms.Label();
             this.btnBorrar = new System.Windows.Forms.Button();
+            this.btnReporte = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgwGrillaDeudores)).BeginInit();
             this.SuspendLayout();
             // 
@@ -156,12 +157,24 @@
             this.btnBorrar.UseVisualStyleBackColor = true;
             this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
+            // btnReporte
+            // 
+            this.btnReporte.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReporte.Location = new System.Drawing.Point(181, 362);
+            this.btnReporte.Name = "btnReporte";
+            this.btnReporte.Size = new System.Drawing.Size(131, 37);
+            this.btnReporte.TabIndex = 22;
+            this.btnReporte.Text = "Reporte";
+            this.btnReporte.UseVisualStyleBackColor = true;
+            this.btnReporte.Click += new System.EventHandler(this.btnReporte_Click);
+            // 
             // frmListadoClientesDeudores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(622, 411);
+            this.Controls.Add(this.btnReporte);
             this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.lblResultadoPromedio);
             this.Controls.Add(this.lblResultadoCantidad);
@@ -193,5 +206,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Dni;
         private System.Windows.Forms.DataGridViewTextBoxColumn NombreyApellido;
         private System.Windows.Forms.DataGridViewTextBoxColumn Deuda;
+        private System.Windows.Forms.Button btnReporte;
     }
 }

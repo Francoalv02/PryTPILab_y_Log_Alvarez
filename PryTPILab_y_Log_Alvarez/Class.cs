@@ -321,5 +321,52 @@ namespace PryTPILab_y_Log_Alvarez
                 MessageBox.Show(Convert.ToString(error));
             }
         }
+
+        public void GenerarReporte()
+        {
+            try
+            {
+                conexion.ConnectionString = cadenaConexion;
+                conexion.Open();//apertura de la base
+
+                comando.Connection = conexion;
+                comando.CommandType = CommandType.TableDirect;
+                comando.CommandText = "Registro_Principal";
+
+                OleDbDataReader DR = comando.ExecuteReader();
+
+                StreamWriter AD = new StreamWriter("ReportesDeClientes.csv", false);
+                AD.WriteLine("Listado de Clientes");
+                AD.WriteLine("Dni;Nombre;Deuda");
+                    
+                varCantidad = 0;
+                varDeuda = 0;
+
+                if (DR.HasRows)
+                {
+                    while (DR.Read())
+                    {
+                        AD.Write(DR.GetInt32(4));
+                        AD.Write(";");
+                        AD.Write(DR.GetString(0));
+                        AD.Write(";");
+                        AD.WriteLine(DR.GetDecimal(7));
+                        varCantidad++;
+                        varDeuda = varDeuda + DR.GetDecimal(7);
+                    }
+                    AD.Write("Cantidadde Clientes:;");
+                    AD.WriteLine(varCantidad);
+                    AD.Write("Cantidadde Clientes:");
+                    AD.WriteLine(Deuda);
+                    
+                }
+                conexion.Close();//cierre de la base
+                AD.Close();
+            }
+            catch (Exception Error)
+            {
+                MessageBox.Show(Error.ToString());
+            }
+        }
     }   
 }

@@ -44,5 +44,12 @@ namespace PryTPILab_y_Log_Alvarez
             lblResultadoDeuda.Text = "";
             lblResultadoPromedio.Text = "";
         }
+
+        private void btnReporte_Click(object sender, EventArgs e)
+        {
+            Class objCliente = new Class();
+            objCliente.GenerarReporte();
+            MessageBox.Show("Reporte Exitoso");
+        }
     }
 }
