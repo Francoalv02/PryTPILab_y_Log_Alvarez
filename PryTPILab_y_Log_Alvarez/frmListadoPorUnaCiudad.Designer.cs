@@ -35,6 +35,7 @@
             this.NombreyApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblCiudad = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnBorrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgwLisCiudad)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,9 +43,9 @@
             // 
             this.cbCiudad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCiudad.FormattingEnabled = true;
-            this.cbCiudad.Location = new System.Drawing.Point(230, 39);
+            this.cbCiudad.Location = new System.Drawing.Point(201, 39);
             this.cbCiudad.Name = "cbCiudad";
-            this.cbCiudad.Size = new System.Drawing.Size(329, 28);
+            this.cbCiudad.Size = new System.Drawing.Size(180, 28);
             this.cbCiudad.TabIndex = 21;
             // 
             // btnListar
@@ -56,6 +57,7 @@
             this.btnListar.TabIndex = 20;
             this.btnListar.Text = "Listar";
             this.btnListar.UseVisualStyleBackColor = true;
+            this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
             // 
             // dgwLisCiudad
             // 
@@ -99,12 +101,24 @@
             this.label1.Size = new System.Drawing.Size(639, 296);
             this.label1.TabIndex = 23;
             // 
+            // btnBorrar
+            // 
+            this.btnBorrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBorrar.Location = new System.Drawing.Point(378, 322);
+            this.btnBorrar.Name = "btnBorrar";
+            this.btnBorrar.Size = new System.Drawing.Size(111, 37);
+            this.btnBorrar.TabIndex = 33;
+            this.btnBorrar.Text = "Borrar";
+            this.btnBorrar.UseVisualStyleBackColor = true;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
+            // 
             // frmListadoPorUnaCiudad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(640, 372);
+            this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.cbCiudad);
             this.Controls.Add(this.btnListar);
             this.Controls.Add(this.dgwLisCiudad);
@@ -127,5 +141,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NombreyApellido;
         private System.Windows.Forms.Label lblCiudad;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnBorrar;
     }
 }

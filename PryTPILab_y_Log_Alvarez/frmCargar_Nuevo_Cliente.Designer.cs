@@ -53,7 +53,7 @@
             // btnCargarCliente
             // 
             this.btnCargarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCargarCliente.Location = new System.Drawing.Point(110, 431);
+            this.btnCargarCliente.Location = new System.Drawing.Point(238, 431);
             this.btnCargarCliente.Name = "btnCargarCliente";
             this.btnCargarCliente.Size = new System.Drawing.Size(131, 37);
             this.btnCargarCliente.TabIndex = 0;
@@ -110,7 +110,7 @@
             // btnCerrar
             // 
             this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCerrar.Location = new System.Drawing.Point(268, 431);
+            this.btnCerrar.Location = new System.Drawing.Point(131, 431);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(101, 37);
             this.btnCerrar.TabIndex = 7;

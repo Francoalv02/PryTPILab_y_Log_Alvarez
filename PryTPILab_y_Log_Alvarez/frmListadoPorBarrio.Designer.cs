@@ -35,6 +35,7 @@
             this.lblBarrio = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnListar = new System.Windows.Forms.Button();
+            this.btnBorrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgwLisBarrio)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,9 +43,9 @@
             // 
             this.cbBarrio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbBarrio.FormattingEnabled = true;
-            this.cbBarrio.Location = new System.Drawing.Point(227, 39);
+            this.cbBarrio.Location = new System.Drawing.Point(179, 39);
             this.cbBarrio.Name = "cbBarrio";
-            this.cbBarrio.Size = new System.Drawing.Size(329, 28);
+            this.cbBarrio.Size = new System.Drawing.Size(182, 28);
             this.cbBarrio.TabIndex = 29;
             // 
             // dgwLisBarrio
@@ -98,6 +99,18 @@
             this.btnListar.TabIndex = 28;
             this.btnListar.Text = "Listar";
             this.btnListar.UseVisualStyleBackColor = true;
+            this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
+            // 
+            // btnBorrar
+            // 
+            this.btnBorrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBorrar.Location = new System.Drawing.Point(397, 309);
+            this.btnBorrar.Name = "btnBorrar";
+            this.btnBorrar.Size = new System.Drawing.Size(111, 37);
+            this.btnBorrar.TabIndex = 34;
+            this.btnBorrar.Text = "Borrar";
+            this.btnBorrar.UseVisualStyleBackColor = true;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
             // frmListadoPorBarrio
             // 
@@ -105,6 +118,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(637, 374);
+            this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.cbBarrio);
             this.Controls.Add(this.btnListar);
             this.Controls.Add(this.dgwLisBarrio);
@@ -126,5 +140,6 @@
         private System.Windows.Forms.Label lblBarrio;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnListar;
+        private System.Windows.Forms.Button btnBorrar;
     }
 }

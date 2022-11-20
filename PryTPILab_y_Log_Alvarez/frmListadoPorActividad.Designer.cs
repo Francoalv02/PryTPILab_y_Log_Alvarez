@@ -45,7 +45,7 @@
             this.cbActividad.FormattingEnabled = true;
             this.cbActividad.Location = new System.Drawing.Point(213, 40);
             this.cbActividad.Name = "cbActividad";
-            this.cbActividad.Size = new System.Drawing.Size(329, 28);
+            this.cbActividad.Size = new System.Drawing.Size(196, 28);
             this.cbActividad.TabIndex = 29;
             // 
             // btnListar
@@ -57,6 +57,7 @@
             this.btnListar.TabIndex = 28;
             this.btnListar.Text = "Listar";
             this.btnListar.UseVisualStyleBackColor = true;
+            this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
             // 
             // dgwLisActividad
             // 
@@ -109,6 +110,7 @@
             this.btnBorrar.TabIndex = 32;
             this.btnBorrar.Text = "Borrar";
             this.btnBorrar.UseVisualStyleBackColor = true;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
             // frmListadoPorActividad
             // 
