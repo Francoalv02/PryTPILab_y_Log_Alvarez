@@ -20,11 +20,7 @@ namespace PryTPILab_y_Log_Alvarez
 
         private string cadenaConexion = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Base de Datos IEFI.2.mdb";
         private string Tabla = "Registro_Principal";
-        private string TablaCiudad = "Cod_Ciudad";
-        private string Detalle = "Detalle";
-
-
-
+     
         private int varCantidad;
         private decimal varDeuda;
 
@@ -37,7 +33,7 @@ namespace PryTPILab_y_Log_Alvarez
         private string Barrio;
         private string Actividad;
 
-
+        //Metodoss
         public Int32 Dni
         {
             get { return IdCliente; }
@@ -68,7 +64,7 @@ namespace PryTPILab_y_Log_Alvarez
         public decimal Deuda
         {
             get { return Deudaa; }
-            set { IdCliente = Convert.ToInt32 (value); }
+            set { Deudaa = Convert.ToDecimal (value); }
         }
 
         public decimal Limite_deuda
@@ -96,29 +92,6 @@ namespace PryTPILab_y_Log_Alvarez
             get { return varDeuda/varCantidad; }
         }
 
-
-
-        public void Listar(DataGridView grilla)
-        {
-            conexion.ConnectionString = cadenaConexion;
-            conexion.Open();
-
-            comando.Connection = conexion;
-            comando.CommandType = CommandType.TableDirect;
-            comando.CommandText = Tabla;
-
-            adaptador = new OleDbDataAdapter(comando);
-            DataSet Ds = new DataSet();
-            adaptador.Fill(Ds);
-
-
-            grilla.DataSource = Ds.Tables[0];
-
-
-
-            conexion.Close();
-
-        }
 
         public void ListarDeudores(DataGridView dgwGrillaDeudores)
         {
@@ -236,44 +209,6 @@ namespace PryTPILab_y_Log_Alvarez
 
         }
 
-
-        public void FuncionTranformarString_a_Id(string tablaCiudad, string Cod_Ciudad, string Detalle, string input)
-        {
-            int id = 0;
-
-            try
-            {
-                OleDbConnection conexionDB;
-
-                conexionDB = new OleDbConnection(tablaCiudad);
-                conexionDB.Open();
-
-                OleDbCommand command = new OleDbCommand();
-
-                command.Connection = conexionDB;
-                command.CommandType = CommandType.TableDirect;
-                command.CommandText = "SELECT * FROM " + tablaCiudad;
-
-                OleDbDataReader reader = command.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    if (reader[Detalle].ToString() == input)
-                    {
-                        id = int.Parse(reader[Cod_Ciudad].ToString());
-                    }
-                }
-                conexionDB.Close();
-                reader.Close();
-            }
-            catch
-            {
-                MessageBox.Show("Error en la función");
-            }
-
-            //return id;
-        }
-
         public void ModificarCliente(Int32 IDCliente)
         {
             try
@@ -308,7 +243,7 @@ namespace PryTPILab_y_Log_Alvarez
                 using (System.Data.OleDb.OleDbCommand commandUpdate = new System.Data.OleDb.OleDbCommand(
                     "DELETE * FROM UPDATE Registro_Principal SET[Limite_deuda] = @limite WHERE[Dni] = @dni" , conexionDB))
                 {
-                    commandUpdate.Parameters.Add(new System.Data.OleDb.OleDbParameter("@limite", Convert.ToDecimal(Limite.ToString())));
+                    commandUpdate.Parameters.Add(new System.Data.OleDb.OleDbParameter("@limite_deuda", Convert.ToDecimal(Limite.ToString())));
                     commandUpdate.Parameters.Add(new System.Data.OleDb.OleDbParameter("@dni", int.Parse(IDCliente.ToString())));
                     commandUpdate.ExecuteNonQuery();
                 }
@@ -369,5 +304,57 @@ namespace PryTPILab_y_Log_Alvarez
             }
         }
 
-    }   
+        //public void EliminarCliente()
+        //{
+        //    try
+        //    {
+                
+        //        bool flagDniIsInDB = false;
+
+        //        OleDbConnection conexionDB;
+        //        conexionDB = new OleDbConnection(cadenaConexion);
+        //        conexionDB.Open();
+
+        //        OleDbCommand commandFlag = new OleDbCommand();
+        //        commandFlag.Connection = conexionDB;
+        //        commandFlag.CommandType = CommandType.TableDirect;
+        //        commandFlag.CommandText = "SELECT * FROM Registro_Principal";
+        //        OleDbDataReader reader = commandFlag.ExecuteReader();
+        //        while (reader.Read())
+        //        {
+        //            if (int.Parse(reader["Dni"].ToString()) == IdCliente)
+        //            {
+        //                Console.WriteLine("La persona está en la base de datos, podemos seguir con el programa");
+        //                flagDniIsInDB = true;
+        //            }
+        //        }
+
+                
+        //        if (flagDniIsInDB == true)
+        //        {
+                    
+        //            using (System.Data.OleDb.OleDbCommand commandDelete = new System.Data.OleDb.OleDbCommand(
+        //                "DELETE FROM Clientes WHERE DNI=@Dni", conexionDB))
+        //            {
+        //                commandDelete.Parameters.Add(new System.Data.OleDb.OleDbParameter("@Dni", IdCliente));
+        //                commandDelete.ExecuteNonQuery();
+        //            }
+
+        //            conexionDB.Close();
+        //            MessageBox.Show(" Cliente eliminado");
+        //        }
+        //        else
+        //        {
+        //            MessageBox.Show("La persona no se encuentra en la base de datos");
+        //        }
+        //    }
+        //    catch
+        //    {
+        //        MessageBox.Show("Error en el eliminado de cliente");
+        //    }
+        //}
+
+
+    }
+      
 }

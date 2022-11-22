@@ -7,11 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.OleDb;
+using System.IO;
 
 namespace PryTPILab_y_Log_Alvarez
 {
     public partial class frmMenuPrincipal : Form
     {
+        private OleDbConnection conexion = new OleDbConnection();
+        private OleDbCommand comando = new OleDbCommand();
+        private OleDbDataAdapter adaptador = new OleDbDataAdapter();
+
+
+         string cadenaConexion = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Base de Datos IEFI.2.mdb";
         public frmMenuPrincipal()
         {
             InitializeComponent();
@@ -67,6 +75,49 @@ namespace PryTPILab_y_Log_Alvarez
         private void sistemaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Bienvenidos a PowerGYM,esperamos que Disfruten de nuestras Maquinas y Personal.");
+        }
+
+        private void frmMenuPrincipal_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        public string functTransformIDIntoString(string table, string column_id, string column_detalle, int inputID)
+        {
+            string detalleResultado = "";
+
+            try
+            {
+                OleDbConnection conexionDB;
+
+                conexionDB = new OleDbConnection(cadenaConexion);
+                conexionDB.Open();
+
+                OleDbCommand command = new OleDbCommand();
+
+                command.Connection = conexionDB;
+                command.CommandType = CommandType.TableDirect;
+                command.CommandText = "SELECT * FROM " + table;
+
+                OleDbDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    if (int.Parse(reader[column_id].ToString()) == inputID)
+                    {
+                        detalleResultado = reader[column_detalle].ToString();
+                    }
+                }
+
+                conexionDB.Close();
+                reader.Close();
+            }
+            catch
+            {
+                MessageBox.Show("Error en la función functTransformIdIntoString!");
+            }
+
+            return detalleResultado;
         }
     }
 }

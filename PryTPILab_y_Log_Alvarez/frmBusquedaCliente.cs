@@ -81,5 +81,14 @@ namespace PryTPILab_y_Log_Alvarez
         {
 
         }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            Int32 IdCliente = Convert.ToInt32(txtBusquedaDni.Text);
+            Class nv = new Class();
+            nv.EliminarCliente(IdCliente);
+            
+            MessageBox.Show("Los Datos han sido Eliminados");
+        }
     }
 }

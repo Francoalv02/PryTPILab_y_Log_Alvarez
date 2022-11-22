@@ -31,8 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenuPrincipal));
             this.mspPrincipal = new System.Windows.Forms.MenuStrip();
             this.sistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cerrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.clToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.actualizaciónDeClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buscarClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,6 +40,8 @@
             this.porActividadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.porCiudadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.porBarrioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cerrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.mspPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -64,23 +64,6 @@
             this.sistemaToolStripMenuItem.Size = new System.Drawing.Size(83, 20);
             this.sistemaToolStripMenuItem.Text = "Bienvenidos";
             this.sistemaToolStripMenuItem.Click += new System.EventHandler(this.sistemaToolStripMenuItem_Click);
-            // 
-            // cerrarToolStripMenuItem
-            // 
-            this.cerrarToolStripMenuItem.Name = "cerrarToolStripMenuItem";
-            this.cerrarToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
-            this.cerrarToolStripMenuItem.Text = "Cerrar";
-            this.cerrarToolStripMenuItem.Click += new System.EventHandler(this.cerrarToolStripMenuItem_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 27);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(536, 343);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
             // 
             // clToolStripMenuItem
             // 
@@ -121,37 +104,54 @@
             // todosLosClientesToolStripMenuItem
             // 
             this.todosLosClientesToolStripMenuItem.Name = "todosLosClientesToolStripMenuItem";
-            this.todosLosClientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.todosLosClientesToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.todosLosClientesToolStripMenuItem.Text = "Todos Los Clientes";
             this.todosLosClientesToolStripMenuItem.Click += new System.EventHandler(this.todosLosClientesToolStripMenuItem_Click);
             // 
             // clientesDeudoresToolStripMenuItem
             // 
             this.clientesDeudoresToolStripMenuItem.Name = "clientesDeudoresToolStripMenuItem";
-            this.clientesDeudoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.clientesDeudoresToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.clientesDeudoresToolStripMenuItem.Text = "Clientes Deudores";
             this.clientesDeudoresToolStripMenuItem.Click += new System.EventHandler(this.clientesDeudoresToolStripMenuItem_Click);
             // 
             // porActividadToolStripMenuItem
             // 
             this.porActividadToolStripMenuItem.Name = "porActividadToolStripMenuItem";
-            this.porActividadToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.porActividadToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.porActividadToolStripMenuItem.Text = "Por Actividad";
             this.porActividadToolStripMenuItem.Click += new System.EventHandler(this.porActividadToolStripMenuItem_Click);
             // 
             // porCiudadToolStripMenuItem
             // 
             this.porCiudadToolStripMenuItem.Name = "porCiudadToolStripMenuItem";
-            this.porCiudadToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.porCiudadToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.porCiudadToolStripMenuItem.Text = "Por Ciudad";
             this.porCiudadToolStripMenuItem.Click += new System.EventHandler(this.porCiudadToolStripMenuItem_Click);
             // 
             // porBarrioToolStripMenuItem
             // 
             this.porBarrioToolStripMenuItem.Name = "porBarrioToolStripMenuItem";
-            this.porBarrioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.porBarrioToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.porBarrioToolStripMenuItem.Text = "Por Barrio";
             this.porBarrioToolStripMenuItem.Click += new System.EventHandler(this.porBarrioToolStripMenuItem_Click);
+            // 
+            // cerrarToolStripMenuItem
+            // 
+            this.cerrarToolStripMenuItem.Name = "cerrarToolStripMenuItem";
+            this.cerrarToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
+            this.cerrarToolStripMenuItem.Text = "Cerrar";
+            this.cerrarToolStripMenuItem.Click += new System.EventHandler(this.cerrarToolStripMenuItem_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 27);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(536, 343);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
             // 
             // frmMenuPrincipal
             // 
@@ -162,6 +162,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Name = "frmMenuPrincipal";
             this.Text = "frmMenuPrincipal";
+            this.Load += new System.EventHandler(this.frmMenuPrincipal_Load);
             this.mspPrincipal.ResumeLayout(false);
             this.mspPrincipal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

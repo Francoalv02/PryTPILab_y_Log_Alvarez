@@ -30,7 +30,7 @@ namespace PryTPILab_y_Log_Alvarez
             objCliente.Saldo = Convert.ToInt32(txtSaldo.Text);
             objCliente.Cod_Barrio = Convert.ToString( cbBarrio.SelectedIndex);
             objCliente.Cod_Actividad = Convert.ToString(cbActividad.SelectedIndex);
-            objCliente.Limite_deuda = Convert.ToDecimal(txtDeuda.Text);
+            objCliente.Limite_deuda = Convert.ToDecimal(txtLimiteDeCredito.Text);
             objCliente.Deuda = Convert.ToDecimal(txtDeuda.Text);
 
             objCliente.NuevoCliente();

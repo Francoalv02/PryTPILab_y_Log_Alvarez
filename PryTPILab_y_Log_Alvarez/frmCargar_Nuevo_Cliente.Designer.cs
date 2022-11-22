@@ -184,9 +184,9 @@
             // txtDeuda
             // 
             this.txtDeuda.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDeuda.Location = new System.Drawing.Point(78, 324);
+            this.txtDeuda.Location = new System.Drawing.Point(72, 324);
             this.txtDeuda.Name = "txtDeuda";
-            this.txtDeuda.Size = new System.Drawing.Size(253, 26);
+            this.txtDeuda.Size = new System.Drawing.Size(259, 26);
             this.txtDeuda.TabIndex = 13;
             // 
             // lblDeuda
