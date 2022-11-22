@@ -108,11 +108,11 @@ namespace PryTPILab_y_Log_Alvarez
                 varCantidad = 0;
                 varDeuda = 0;
 
-                while (DR.Read())
+                while (DR.Read())//leer mientras haya datos
                 {
-                    if (DR.GetDecimal(7) > 0 )
+                    if (DR.GetDecimal(7) > 0 )//si la posicion deuda sea mayor a 0
                     {
-                        dgwGrillaDeudores.Rows.Add(DR.GetInt32(4), DR.GetString(0), DR.GetDecimal(7));
+                        dgwGrillaDeudores.Rows.Add(DR.GetInt32(4), DR.GetString(0), DR.GetDecimal(7));//mostrar en grilla dni ,nombre y deuda
                         varCantidad++;
                         varDeuda = varDeuda + DR.GetDecimal(7);
 
@@ -145,7 +145,7 @@ namespace PryTPILab_y_Log_Alvarez
                 {
                     while (DR.Read())//mientras hay datos leer
                     {
-                        if (DR.GetInt32(4) == DniCliente)
+                        if (DR.GetInt32(4) == DniCliente)//mientras la columna 4(dni) sea igual a var
                         {
                             IdCliente = DR.GetInt32(4);
                             Nombre = DR.GetString(0);
@@ -219,7 +219,7 @@ namespace PryTPILab_y_Log_Alvarez
                 using (System.Data.OleDb.OleDbCommand commandUpdate = new System.Data.OleDb.OleDbCommand(
                     "UPDATE Registro_Principal SET [Limite_deuda]=@limite WHERE [Dni]=@dni", conexionDB))
                 {
-                    commandUpdate.Parameters.Add(new System.Data.OleDb.OleDbParameter("@limite", Convert.ToDecimal(Limite.ToString())));
+                    commandUpdate.Parameters.Add(new System.Data.OleDb.OleDbParameter("@limite", Convert.ToDecimal(Limite.ToString())));//reemplaza con las variables
                     commandUpdate.Parameters.Add(new System.Data.OleDb.OleDbParameter("@dni", int.Parse(IDCliente.ToString())));
                     commandUpdate.ExecuteNonQuery();
                 }
