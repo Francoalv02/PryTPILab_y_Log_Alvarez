@@ -52,15 +52,16 @@ namespace PryTPILab_y_Log_Alvarez
             comando.CommandText = "SELECT * FROM Registro_Principal ORDER BY Dni";
             OleDbDataReader reader = comando.ExecuteReader();
 
-            //transformo los id_profesor, id_barrio en strings en la grilla
+            
             while (reader.Read())
             {
                 string strBarrio = frmMenuPrincipal.functTransformIDIntoString("Cod_Barrio", "Cod_Barrio", "Detalle", int.Parse(reader["Cod_Barrio"].ToString()));
                 string strCiudad = frmMenuPrincipal.functTransformIDIntoString("Cod_Ciudad", "Cod_Ciudad", "Detalle", int.Parse(reader["Cod_Ciudad"].ToString()));
                 string strActividad = frmMenuPrincipal.functTransformIDIntoString("Cod_Actividad", "Cod_actividad", "Detalle", int.Parse(reader["Cod_Actividad"].ToString()));
-
+                //convierte los COD de barrio,ciudad,actividad
                 dgwTodosClientes.Rows.Add(reader["Dni"], reader["Nom_Apellido"], "$" + reader["Deuda"], strBarrio, strCiudad,
                  strActividad, reader["Saldo"], reader["Limite_deuda"]);
+                //completa la grilla con los elementos de la tabla Reg y las converciones
 
 
             }

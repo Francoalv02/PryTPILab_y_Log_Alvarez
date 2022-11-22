@@ -241,10 +241,10 @@ namespace PryTPILab_y_Log_Alvarez
                 conexionDB = new OleDbConnection(cadenaConexion);
                 conexionDB.Open();
                 using (System.Data.OleDb.OleDbCommand commandUpdate = new System.Data.OleDb.OleDbCommand(
-                    "DELETE * FROM UPDATE Registro_Principal SET[Limite_deuda] = @limite WHERE[Dni] = @dni" , conexionDB))
-                {
-                    commandUpdate.Parameters.Add(new System.Data.OleDb.OleDbParameter("@limite_deuda", Convert.ToDecimal(Limite.ToString())));
-                    commandUpdate.Parameters.Add(new System.Data.OleDb.OleDbParameter("@dni", int.Parse(IDCliente.ToString())));
+                    "DELETE FROM Registro_Principal WHERE [Dni] = @dni", conexionDB))
+                {//eliminar - todo
+                    
+                    commandUpdate.Parameters.Add(new System.Data.OleDb.OleDbParameter("@Dni", int.Parse(IDCliente.ToString())));
                     commandUpdate.ExecuteNonQuery();
                 }
                 conexionDB.Close();
